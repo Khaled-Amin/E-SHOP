@@ -1,0 +1,187 @@
+
+body{
+    font-family: Font;
+    background-color: #f1f1f1;
+}
+/* navbar login section */
+/* dropdown loging */
+.nav-just{
+    justify-content: space-between;
+}
+/* .btn-log{
+    width: 60px;
+    height: 42px;
+    border-radius: 50%;
+} */
+
+.dropdown-item{
+    display: flex;
+}
+/* btn navbar login */
+.loginBtn{
+    color: #262626;
+    text-align: start ;
+}
+.loginBtn:hover{
+    background-color: #f1f1f1;
+    color: #262626;
+}
+/* btn navbar login */
+.btun{
+    border: 0;
+    background: transparent;
+    color: #262626;
+    display: flex;
+    outline: none;
+    width: 100%;
+}
+.btun:hover{
+    background-color: #E9ECEf;
+}
+.loggin{
+    display: flex;
+    position: absolute;
+    left: 100px;
+}
+/* slider */
+
+.carousel-item img{
+    width: 100%;
+    height: 30rem;
+}
+
+/* end slider */
+a{
+    text-decoration: none;
+}
+.refactone{
+    overflow: hidden;
+}
+.refact{
+    overflow: hidden;
+    height: 12rem;
+}
+.card{
+    overflow: hidden;
+}
+.card .refact img{
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+.prod .card img:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+    overflow: hidden;
+}
+.main .card img:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+}
+.card-body{
+    border-top: 1px solid #abab;
+}
+a{
+    text-decoration: none !important;
+}
+.h5, h5{
+    font-size: 16px;
+}
+.color-font-prod-feature{
+    color: #817c7c;
+}
+.collection h6 a , .part-index-product a{
+    color: #262626;
+}
+.qty-input{
+    text-align: center;
+}
+.paycheck h6{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkout-form input{
+    font-size: 14px;
+    padding:5px;
+    font-weight: 400;
+}
+/* orders view page */
+.order-details label{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.order-details div{
+    font-size: 14px;
+    padding: 5px !important;
+}
+/* rating */
+.rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  .rating-css input {
+    display: none;
+  }
+  .rating-css input + label {
+    font-size: 60px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+  }
+  .rating-css input:checked + label ~ label {
+    color: #b4afaf;
+  }
+  .rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+  }
+
+/* End of Star Rating */
+
+
+/* footer */
+footer{
+    background-color: #212529;
+}
+footer .text-reset{
+    color: #ffffff !important;
+}
+footer .text-reset:hover{
+    color: #817c7c !important;
+}
+footer h6{
+    color: #ffffff !important;
+}
+.linkss h6 , .linkss p{
+    text-align: end;
+}
+.link-i-icon i{
+    margin-left: 1rem;
+}
+
+@media (max-width:992px){
+    .dropdown-menu{
+        right: 0;
+    }
+}
+/* @media (max-width:912px){
+    .dropdown-menu{
+        right: 0;
+    }
+} */
+
+
+/* rating */
+
+.checked{
+    color: #ffe400;
+}
+/* end */

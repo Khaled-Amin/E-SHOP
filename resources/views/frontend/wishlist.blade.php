@@ -9,8 +9,8 @@
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container collection">
         <h6 class="mb-0">
-            <a href="{{url('/')}}">الصفحة الرئيسية</a> /
-            <a href="{{url('wishlist')}}">قائمة الرغبات</a>
+            <a href="{{url('/')}}">Home</a> /
+            <a href="{{url('wishlist')}}">Wishlist</a>
         </h6>
     </div>
 </div>
@@ -33,7 +33,7 @@
                         <div class="col-md-2">
                             <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
                             @if ($item->products->qty >= $item->prod_qty)
-                                <label for="Quantity">الكمية</label>
+                                <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3">
                                     <button class="input-group-text decrement-btn">-</button>
                                     <input type="text" name="quantity" value="1" class="form-control text-center qty-input" />
@@ -44,20 +44,20 @@
                             @endif
                         </div>
                         <div class="col-md-2 my-auto d-flex justify-content-center align-items-center">
-                            <button class="btn btn-success addToCartBtn btn-sm"><i class="fa fa-shopping-cart m-2"></i>اضف الى سلة</button>
+                            <button class="btn btn-success addToCartBtn btn-sm"><i class="fa fa-shopping-cart m-2"></i>Add to Cart</button>
                         </div>
                         <div class="col-md-2 my-auto d-flex justify-content-center align-items-center">
-                            <button class="btn btn-danger btn-sm rempve-wishlist-item"><i class="fa fa-trash m-2"></i>حذف</button>
+                            <button class="btn btn-danger btn-sm rempve-wishlist-item"><i class="fa fa-trash m-2"></i>Delete</button>
                         </div>
                         </div>
                     @endforeach
 
                 @else
                 <div class="text-center">
-                    <h2>قائمة الرغبات الخاصة بك فارغة</h2>
+                    <h2>Your Wishlist empty</h2>
                     <br>
-                    <h6>أيش تنتظر؟</h6>
-                    <a href="{{route('categoryAll')}}" class="btn btn-outline-primary text-center">ابدأ التسوق</a>
+                    <h6>What are you waiting for?</h6>
+                    <a href="{{route('categoryAll')}}" class="btn btn-outline-primary text-center">Shopping</a>
                 </div>
                 @endif
             </div>

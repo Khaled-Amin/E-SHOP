@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -35,8 +35,11 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <!-- Exzoom -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/exzoom/jquery.exzoom.css') }}">
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ asset('css/asw.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ecomm.css') }}">
@@ -47,9 +50,13 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css') }}/style-front.css">
 </head>
 
-<body>
+<body dir="ltr">
 
-
+    <div class="whatsapp">
+        <a href="https://api.whatsapp.com/send?phone=201100670775" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
 
     @include('layouts.frontnavbar')
     <div class="content">
@@ -63,25 +70,25 @@
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom container">
           <!-- Left -->
           <div class="me-5 d-none d-lg-block" dir="rtl">
-            <span class="text-white">تواصل معنا على الشبكات الاجتماعية:</span>
+            <span class="text-white">:Connect with us on social networks</span>
           </div>
           <!-- Left -->
 
           <!-- Right -->
           <div dir="rtl">
-            <a href="" class="me-4 text-reset">
+            <a href="javascript:void(0);" class="me-4 text-reset">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="javascript:void(0);" class="me-4 text-reset">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="javascript:void(0);" class="me-4 text-reset">
               <i class="fab fa-google"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="javascript:void(0);" class="me-4 text-reset">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="javascript:void(0);" class="me-4 text-reset">
               <i class="fab fa-linkedin"></i>
             </a>
             {{-- <a href="" class="me-4 text-reset">
@@ -98,10 +105,10 @@
             <!-- Grid row -->
             <div class="row mt-3" dir="ltr">
               <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div class="col-md-3 col-lg-4 col-xl-6 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3"></i>E-SHOP
+                  <i class="fas fa-gem me-3"></i>COUNTRYBOOT
                 </h6>
                 <p class="text-end text-white">@isset($Settings){!! $Settings->Description !!}@endisset</p>
               </div>
@@ -111,7 +118,7 @@
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                  المنتجات
+                  Categories
                 </h6>
                 @isset($categories)
                 @foreach ($categories as $item)
@@ -124,34 +131,16 @@
               <!-- Grid column -->
 
               <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  روابط تهمك
-                </h6>
-                <p>
-                  <a href="#!" class="text-reset">سياسة الضمان</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">الإعدادات</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">شروط الاستخدام</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">سياسة خصوصية</a>
-                </p>
-              </div>
+
               <!-- Grid column -->
 
               <!-- Grid column -->
               <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 link-i-icon text-white">
                 <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">اتصل بنا</h6>
-                <p>New York, NY 10012, US <i class="fas fa-home me-3"></i></p>
-                <p>info@example.com<i class="fas fa-envelope me-3"></i></p>
-                <p>+ 01 234 567 88<i class="fas fa-phone me-3"></i> </p>
-                <p>+ 01 234 567 89<i class="fas fa-print me-3"></i> </p>
+                <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+                <p><i class="fas fa-home me-3"></i>Egypt, Cairo</p>
+                <p><i class="fas fa-envelope me-3"></i>Hosamsaied@hotmail.com</p>
+                <p><i class="fas fa-phone me-3"></i>+20 1100670775</p>
               </div>
               <!-- Grid column -->
             </div>
@@ -162,8 +151,10 @@
 
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05); color:#fff;">
-          © 2023 Created By: Khaled Amir Amin
-        </div>
+            © 2024 All rights reserved
+
+          <!-- Created By: Khaled Amir Amin, email:khaledamiramin@gmail.com -->
+          </div>
         <!-- Copyright -->
       </footer>
       <!-- Footer -->
@@ -177,6 +168,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/checkout.js') }}"></script>
+    <script src="{{ asset('frontend/assets/exzoom/jquery.exzoom.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
 
@@ -198,6 +190,9 @@
 
 
         </script>
+        @yield('script')
+
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('success'))
         <script>
@@ -209,6 +204,29 @@
 </body>
 </html>
 <style>
+    .whatsapp {
+    position: fixed;
+    z-index: 9999999;
+    right: 36px;
+    bottom: 45px;
+    padding: 10px 15px;
+    background-color: #1fc41f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.whatsapp a i {
+    color: #FFF;
+    font-size: 42px;
+}
+    .listDrop{
+        left: auto !important;
+    }
+    .dropdown-menu[data-bs-popper]{
+        /* left: auto !important; */
+        right: 0 !important;
+    }
     p span{
         color: #fff;
     }

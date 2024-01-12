@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
+
+use App\Http\Controllers\dashboard\PDFController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,6 +59,34 @@ Route::get('/destroy-products/{id}' , [App\Http\Controllers\dashboard\ProductCon
 /**********************************************   End Products   ****************************************************************** */
 
 
+/**********************************************   Colors   ****************************************************************** */
+Route::get('/colors' , [App\Http\Controllers\dashboard\ColorController::class, 'index'])->name('all.main.colors');
+Route::get('/create-colors' , [App\Http\Controllers\dashboard\ColorController::class, 'create'])->name('create.colors');
+Route::post('/store-colors' , [App\Http\Controllers\dashboard\ColorController::class, 'store'])->name('store.colors');
+Route::get('/edit-colors/{id}' , [App\Http\Controllers\dashboard\ColorController::class, 'edit'])->name('edit.colors');
+Route::put('/update-colors/{id}' , [App\Http\Controllers\dashboard\ColorController::class, 'update'])->name('update.colors');
+Route::get('/destroy-colors/{id}' , [App\Http\Controllers\dashboard\ColorController::class, 'destroy'])->name('destroy.colors');
+/**********************************************   End Colors   ****************************************************************** */
+
+/**********************************************   Sizes   ****************************************************************** */
+Route::get('/sizes' , [App\Http\Controllers\dashboard\SizeController::class, 'index'])->name('all.main.sizes');
+Route::get('/create-sizes' , [App\Http\Controllers\dashboard\SizeController::class, 'create'])->name('create.sizes');
+Route::post('/store-sizes' , [App\Http\Controllers\dashboard\SizeController::class, 'store'])->name('store.sizes');
+Route::get('/edit-sizes/{id}' , [App\Http\Controllers\dashboard\SizeController::class, 'edit'])->name('edit.sizes');
+Route::put('/update-sizes/{id}' , [App\Http\Controllers\dashboard\SizeController::class, 'update'])->name('update.sizes');
+Route::get('/destroy-sizes/{id}' , [App\Http\Controllers\dashboard\SizeController::class, 'destroy'])->name('destroy.sizes');
+/**********************************************   End Sizes   ****************************************************************** */
+
+/**********************************************   Shipping   ****************************************************************** */
+Route::get('/shipping' , [App\Http\Controllers\dashboard\ShippingController::class, 'index'])->name('all.main.shipping');
+Route::get('/create-shipping' , [App\Http\Controllers\dashboard\ShippingController::class, 'create'])->name('create.shipping');
+Route::post('/store-shipping' , [App\Http\Controllers\dashboard\ShippingController::class, 'store'])->name('store.shipping');
+Route::get('/edit-shipping/{id}' , [App\Http\Controllers\dashboard\ShippingController::class, 'edit'])->name('edit.shipping');
+Route::put('/update-shipping/{id}' , [App\Http\Controllers\dashboard\ShippingController::class, 'update'])->name('update.shipping');
+Route::get('/destroy-shipping/{id}' , [App\Http\Controllers\dashboard\ShippingController::class, 'destroy'])->name('destroy.shipping');
+/**********************************************   End Shipping   ****************************************************************** */
+
+
 
 /**********************************************   Start Orders   ****************************************************************** */
 
@@ -63,6 +94,7 @@ Route::get('/orders' , [App\Http\Controllers\dashboard\OrderController::class, '
 Route::get('view-order/{id}' , [App\Http\Controllers\dashboard\OrderController::class, 'view'])->name('show.orders');
 Route::put('update-order/{id}' , [App\Http\Controllers\dashboard\OrderController::class, 'updateOrder'])->name('update.orders');
 Route::get('order-history' , [App\Http\Controllers\dashboard\OrderController::class, 'orderHistory'])->name('history.orders');
+Route::get('/generate-pdf/{id}', [PDFController::class, 'generatePdf'])->name('generate.pdf');
 
 /**********************************************   End Orders   ****************************************************************** */
 
@@ -90,6 +122,7 @@ Route::get('/' , [App\Http\Controllers\frontend\FrontendController::class , 'ind
 Route::get('category/' , [App\Http\Controllers\frontend\FrontendController::class , 'getAllCategory'])->name('categoryAll');
 Route::get('view-category/{slug}' , [App\Http\Controllers\frontend\FrontendController::class , 'viewCategory'])->name('productBycategory');
 Route::get('category/{cate_slug}/{prod_slug}' , [App\Http\Controllers\frontend\FrontendController::class , 'productView'])->name('showProduct');
+Route::post('getsize/', [App\Http\Controllers\frontend\FrontendController::class, 'getSize'])->name('getsize');
 // Cart
 Route::post('add-to-cart' , [App\Http\Controllers\frontend\CartController::class , 'addProduct'])->name("getProduct.cart");
 Route::post('delete-cart-item' , [App\Http\Controllers\frontend\CartController::class , 'removeProduct'])->name("removeProductIn.cart");
@@ -127,8 +160,8 @@ Route::middleware(['auth'])->group(function () {
 //     return view('welcome');
 // });
 
-Route::get('/dashboardd', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboardd', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

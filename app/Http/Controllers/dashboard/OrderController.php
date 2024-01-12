@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,7 +23,9 @@ class OrderController extends Controller
     public function view($id){
         $orders = Order::where('id' , $id)->first();
         $getCate = Category::where('status' , '0')->get();
-        return view('admin.orders.viewOrders' , compact('getCate','orders'));
+        $categories = Category::take(4)->get();
+        $Settings = Setting::first();
+        return view('admin.orders.viewOrders' , compact('Settings','categories','getCate','orders'));
     }
     public function updateOrder(Request $request , $id){
         $orders = Order::find($id);

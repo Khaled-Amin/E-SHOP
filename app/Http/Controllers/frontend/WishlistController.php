@@ -33,14 +33,14 @@ class WishlistController extends Controller
                 $wish->prod_id = $prod_id;
                 $wish->user_id = Auth::id();
                 $wish->save();
-                return response()->json(['status' =>  "تمت الإضافة لقائمة الرغبات"]);
+                return response()->json(['status' =>  "Added to wish list"]);
             }
             else{
-                return response()->json(['status' => "تم اضافته مسبقا"]);
+                return response()->json(['status' => "It has already been added"]);
             }
         }
         else{
-            return response()->json(['status' => "الرجاء تسجيل الدخول لاستكمال العملية"]);
+            return response()->json(['status' => "Please log in to complete the process"]);
         }
     }
 
@@ -51,11 +51,11 @@ class WishlistController extends Controller
             if(Wishlist::where('prod_id' , $prod_id)->where('user_id' , Auth::id())->exists()){
                 $wish = Wishlist::where('prod_id' , $prod_id)->where('user_id' , Auth::id())->first();
                 $wish->delete();
-                return response()->json(['status' => "تم حذف منتج بنجاح"]);
+                return response()->json(['status' => "A product has been successfully deleted"]);
             }
         }
         else{
-            return response()->json(['status' => "الرجاء تسجيل الدخول لاستكمال العملية"]);
+            return response()->json(['status' => "Please log in to complete the process"]);
         }
     }
 

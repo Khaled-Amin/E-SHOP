@@ -12,9 +12,9 @@ class Category extends Model
     protected $table='categories';
     protected $fillable = ['name' , 'slug' , 'description' , 'status' , 'popular' ,'image', 'meta_title' , 'meta_keywords' , 'meta_descrip'];
 
-    // public function product(){
-    //     return $this->hasMany(Product::class , 'cate_id' , 'id');
-    // }
+    public function product(){
+        return $this->hasMany(Product::class , 'cate_id' , 'id');
+    }
 
 
 }

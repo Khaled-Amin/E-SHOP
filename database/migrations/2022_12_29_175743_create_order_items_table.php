@@ -17,6 +17,8 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->string('order_id');
             $table->string('prod_id');
+            $table->string('colorID');
+            $table->string('sizeID');
             $table->string('qty');
             $table->string('price');
             $table->timestamps();

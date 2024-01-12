@@ -71,10 +71,10 @@
                             <button type="submit" class="btn btn-blue">Signup</button>
                         </div>
                     </form>
-                    <div class="footer">
+                    {{-- <div class="footer">
                         <p>Copyright &copy; 2023 <a href="{{route('admin.register')}}">Khaled Amir Amir</a>. All rights
                             reserved.</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

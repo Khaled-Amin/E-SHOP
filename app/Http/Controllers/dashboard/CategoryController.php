@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,7 @@ class CategoryController extends Controller
         // }
         if($request->hasFile('photo')){
             $time = time();
-            $image = Image::make($request->file('photo')->getRealPath())->encode('webp', 100)->resize(1280 , 768)->save(public_path('uploading/'  .  $time . '.webp'));
+            $image = Image::make($request->file('photo')->getRealPath())->encode('webp', 100)->resize(1350 , 550)->save(public_path('uploading/'  .  $time . '.webp'));
             // $newImageName = time(). '.' . $request->photo->extension();
             // $request->photo->move(public_path('uploading/') , $newImageName);
         }else{
@@ -61,7 +62,7 @@ class CategoryController extends Controller
             'popular'       => $request->input('popular') == TRUE ? '1' : '0',
             'image'         => $time . '.' .'webp',
         ]);
-        
+
         // $category = new Category();
         // dd($category);
         // $category->name = $request->input('category_name');
@@ -96,7 +97,7 @@ class CategoryController extends Controller
                 File::delete($path);
             }
             $time = time();
-            $image = Image::make($request->file('photo')->getRealPath())->encode('webp', 100)->resize(1280 , 768)->save(public_path('uploading/'  .  $time . '.webp'));
+            $image = Image::make($request->file('photo')->getRealPath())->encode('webp', 100)->resize(1350 , 550)->save(public_path('uploading/'  .  $time . '.webp'));
             DB::table('categories')->where('id' , $id)->update([
                 'image' =>  $time . '.' . 'webp'
             ]);
@@ -124,6 +125,7 @@ class CategoryController extends Controller
         if(File::exists($path)){
             File::delete($path);
         }
+        DB::table('products')->select('id', 'cate_id')->where('cate_id', $getCategory_Id->id)->delete();
         $getCategory_Id->delete();
 
         return redirect()->route('all.main.categories')

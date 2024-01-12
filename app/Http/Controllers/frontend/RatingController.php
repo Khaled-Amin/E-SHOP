@@ -34,16 +34,16 @@ class RatingController extends Controller
                         'stars_rated' => $stars_rated
                     ]);
                 }
-                return redirect()->back()->with('success' , 'شكرا لتقييم هذا المنتج');
+                return redirect()->back()->with('success' , 'Thank you for rating this product');
 
             }
             else{
-                return redirect()->back()->with('success' , 'لا يمكنك تقييم منتج بدون شراء');
+                return redirect()->back()->with('success' , 'You cannot rate a product without purchasing it');
             }
 
         }
         else{
-            return redirect()->back()->with('success' , 'خطأ,قد يكون الرابط الذي اتبعته معطلاً');
+            return redirect()->back()->with('success' , 'Error, the link you followed may be broken');
         }
     }
 }

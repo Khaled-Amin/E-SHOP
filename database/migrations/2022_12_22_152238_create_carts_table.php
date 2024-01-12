@@ -17,6 +17,8 @@ class CreateCartsTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('prod_id');
+            $table->string('colorID');
+            $table->string('sizeID');
             $table->string('prod_qty');
             $table->timestamps();
         });

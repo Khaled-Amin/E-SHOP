@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
@@ -15,7 +17,10 @@ class PasswordResetLinkController extends Controller
      */
     public function create()
     {
-        return view('auth.forgot-password');
+        $categories = Category::take(4)->get();
+        $Settings = Setting::first();
+        $getCate = Category::where('status' , '0')->get();
+        return view('auth.forgetPassword', compact('getCate', 'Settings', 'categories'));
     }
 
     /**

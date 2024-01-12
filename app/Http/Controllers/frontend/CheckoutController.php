@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use App\Models\ProductColorSize;
 use App\Models\Setting;
+use App\Models\Shipping;
 use App\Models\User;
 
 
@@ -20,7 +23,7 @@ class CheckoutController extends Controller
     {
         $old_cartitems = Cart::where('user_id', Auth::id())->get();
         foreach ($old_cartitems as $item) {
-            if (!Product::where('id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->exists()) {
+            if (!ProductColorSize::where('product_id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->exists()) {
                 $removeItem = Cart::where('user_id', Auth::id())->where('prod_id', $item->prod_id)->first();
                 $removeItem->delete();
             }
@@ -30,16 +33,34 @@ class CheckoutController extends Controller
         foreach($getCartData as $item){
             $grandTotal += (int)$item->products->selling_price * (int)$item->prod_qty;
         }
-        // dd($res);
-        $cartitems = Cart::where('user_id', Auth::id())->get();
+
+        $cartitems = Cart::with('products.productColorSizes.color')->where('user_id', Auth::id())->get();
+        // $color = Color::select('id', 'name')->get();
+        // dd($cartitems);
         $categories = Category::take(4)->get();
         $getCate = Category::where('status' , '0')->get();
         $Settings = Setting::first();
-        return view('frontend.checkoutPage', compact('Settings','getCate','categories','cartitems' , 'grandTotal'));
+        $shipping = Shipping::get();
+
+        return view('frontend.checkoutPage', compact('shipping','Settings','getCate','categories','cartitems' , 'grandTotal'));
     }
 
     public function placeOrder(Request $request)
     {
+        $request->validate([
+            'shipping' => 'required',
+            'fname'    => 'required',
+            'lname'    => 'required',
+            'email'    => 'required',
+            'phone_num' => 'required',
+            'addr1' => 'required',
+            'addr2' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'pincode' => 'required',
+
+        ]);
         $order = new Order();
         $order->user_id = Auth::id();
         $order->fname = $request->input('fname');
@@ -59,9 +80,10 @@ class CheckoutController extends Controller
         foreach($cartitems_total as $prod){
             $total += ((int)$prod->products->selling_price * (int)$prod->prod_qty);
         }
-        $order->total_price = $total.'$';
+        $order->total_price = $total + (int)$request->shipping .'$';
+        $order->shipping_costs = $request->shipping;
 
-        $order->tracking_no = 'Khaled' . random_int(1111, 9999);
+        $order->tracking_no = $request->fname . '' . $request->lname . random_int(1111, 9999);
         $order->save();
 
 
@@ -70,10 +92,13 @@ class CheckoutController extends Controller
             OrderItem::create([
                 'order_id' => $order->id,
                 'prod_id'  => $item->prod_id,
+                'colorID'  => $item->colorID,
+                'sizeID'   => $item->sizeID,
                 'qty'      => $item->prod_qty,
                 'price'    => $item->products->selling_price,
             ]);
-            $prod = Product::where('id' , $item->prod_id)->first();
+
+            $prod = ProductColorSize::where('product_id' , $item->prod_id)->first();
             $prod->qty = $prod->qty - $item->prod_qty;
             $prod->update();
         }
@@ -93,7 +118,7 @@ class CheckoutController extends Controller
         }
         $cartitems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitems);
-        return redirect('/')->with('success' , 'تم طلب');
+        return redirect('/')->with('success' , 'The order was processed successfully');
     }
 
     public function razerpaycheck(Request $request){

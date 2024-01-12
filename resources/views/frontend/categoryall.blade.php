@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <h2>كل التصنيفات:</h2>
+                        <h2>All Categories:</h2>
                         @foreach ($getCate as $getCategoryy)
                         <div class="col-md-4 mt-3">
                             <a href="{{route('productBycategory', [$getCategoryy->slug])}}" class="text-decoration-none">

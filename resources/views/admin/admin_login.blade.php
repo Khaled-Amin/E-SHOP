@@ -62,22 +62,15 @@
 
                             <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span>
                         </div>
-                        {{-- <div class="form-group">
-                            <label class="chech_container">تذكرني
-                                <input type="checkbox" name="remember" id="remember">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div> --}}
+
                         <div class="form-group">
-                            <a class="registration" href="{{route('admin.register')}}">انشاء حساب جديد</a><br>
-                            <a href=" " class="text-white">نسيت كلمة المرور</a>
-                            <button type="submit" class="btn btn-blue">دخول</button>
+                            <button type="submit" class="btn btn-blue w-100">دخول</button>
                         </div>
                     </form>
-                    <div class="footer">
+                    {{-- <div class="footer">
                         <p>Copyright &copy; 2023 <a href="{{route('login_form')}}">Khaled Amir Amir</a>. All rights
                             reserved.</p>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

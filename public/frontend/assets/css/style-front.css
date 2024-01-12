@@ -5,6 +5,7 @@ body{
 }
 /* navbar login section */
 /* dropdown loging */
+
 .nav-just{
     justify-content: space-between;
 }
@@ -13,9 +14,21 @@ body{
     height: 42px;
     border-radius: 50%;
 } */
-
+#search_product{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 0;
+}
+.section_btnsearch{
+    border-top-right-radius: 0;
+    border-top-left-radius: 5px !important;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 5px !important;
+}
 .dropdown-item{
     display: flex;
+    align-items: center;
 }
 /* btn navbar login */
 .loginBtn{
@@ -34,6 +47,7 @@ body{
     display: flex;
     outline: none;
     width: 100%;
+    align-items: center;
 }
 .btun:hover{
     background-color: #E9ECEf;
@@ -47,15 +61,76 @@ body{
 
 .carousel-item img{
     width: 100%;
-    height: 30rem;
+    height: 35rem;
 }
 
 /* end slider */
+
+/* Popular Produc */
+.cont_b {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.cont_b .box_product{
+    width: 22%;
+    height: fit-content;
+    margin-bottom: 1rem;
+    -webkit-box-shadow: 0px 0px 9px -2px #8b949e;
+    -moz-box-shadow: 0px 0px 9px -2px #8b949e;
+    box-shadow: 0px 0px 9px -2px #8b949e;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.box_product .popular {
+    background-color: red;
+    color: #FFF;
+    padding: 0px 12px;
+    font-size: 8px;
+    border-radius: 7px;
+}
+.box_product h6 {
+    color: #272727;
+}
+.box_product .img{
+    width: 100%;
+    height: 244px;
+}
+.box_product .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.product-description{
+    /* margin-top: .5rem; */
+    padding: 9px;
+}
+.product-price .old-price{
+    font-size: 14px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    color: #aaaaaa;
+    margin-right: 10px;
+    text-decoration: line-through;
+}
+
+/* End Popular */
 a{
     text-decoration: none;
 }
 .refactone{
+    width: 100%;
+    height: auto;
     overflow: hidden;
+    text-align: center;
+}
+.refactone img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 .refact{
     overflow: hidden;
@@ -63,6 +138,7 @@ a{
 }
 .card{
     overflow: hidden;
+    height: auto;
 }
 .card .refact img{
     width: 100%;
@@ -160,13 +236,68 @@ footer .text-reset:hover{
 footer h6{
     color: #ffffff !important;
 }
-.linkss h6 , .linkss p{
+/* .linkss h6 , .linkss p{
     text-align: end;
-}
+} */
 .link-i-icon i{
     margin-left: 1rem;
 }
-
+.btn-adds{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+@media (max-width:769px){
+    .cont_b .box_product{
+        width: 100%;
+    }
+    .listDrop{
+        flex-direction: column;
+    }
+    .listDrop .nav-item{
+        margin-left: 0 !important;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .listDrop .btnLogin{
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .listDrop .btn-log{
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .sign-in{
+        width: 100%;
+    }
+    .left-form-login{
+        display: none;
+    }
+    .content{
+        padding: 0 0 !important;
+    }
+    footer .text-reset {
+        margin-right: 1rem;
+    }
+    .carousel-item img{
+        height:auto;
+    }
+    .card a img{
+        object-fit: contain;
+    }
+    .btn-adds{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-adds button{
+        margin-left:0;
+      height: fit-content;
+    }
+    .btn-adds .btn-pr {
+        margin-bottom:.6rem;
+    }
+  }
 @media (max-width:992px){
     .dropdown-menu{
         right: 0;

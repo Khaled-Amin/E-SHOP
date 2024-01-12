@@ -79,7 +79,7 @@ button,
 .btn-blue:hover{
   background-color: #079AFF!important;
 }
-/***  Check Box 
+/***  Check Box
 ------------------------------------------------*/
 .chech_container {
   display: block;
@@ -335,10 +335,10 @@ section{
 }
 .header_area .header_menu>li:nth-child(1)>a>span{
   background-color: #00a65a;
-} 
+}
 .header_area .header_menu>li:nth-child(2)>a>span{
   background: #f39c12 ;
-} 
+}
 .header_area .header_menu li .responsive_menu_toggle{
     display: none;
   }
@@ -851,7 +851,7 @@ footer .developby a:hover{
   position: absolute;
   top:50%;
   left:10px;
-  float-right;
+  /* float-right; */
   transform: translatey(-50%);
   color:#000;
   opacity: .5;
@@ -860,7 +860,7 @@ footer .developby a:hover{
   position: absolute;
   top:50%;
   right:10px;
-  float-right;
+  /* float-right; */
   transform: translatey(-50%);
   color:#000;
   opacity: .5;
@@ -872,7 +872,7 @@ footer .developby a:hover{
   color:#000;
   opacity: .5;
 }
-/*** index 
+/*** index
 ==========================================================================================================*/
 .counter_area{
 
@@ -933,6 +933,7 @@ footer .developby a:hover{
 }
 .login_page{
   margin:0px 0px;
+  padding: 20px;
 }
 .center_content{
   background-color: #0074E8;
@@ -941,6 +942,8 @@ footer .developby a:hover{
 }
 .center_content form{
   display: block;
+  direction: rtl;
+  text-align: justify;
   overflow: hidden;
   padding:5px;
   margin:5px;
@@ -949,7 +952,7 @@ footer .developby a:hover{
   .center_container{
     padding-bottom: 73px;
   }
-  
+
 }
 @media screen and (max-width: 576px) {
   .center_content{
@@ -1107,8 +1110,8 @@ div.dataTables_wrapper div.dataTables_length label{
 }
 .btn-default.active.focus, .btn-default.active:focus,
 .btn-default.active:hover, .btn-default:active.focus,
-.btn-default:active:focus, .btn-default:active:hover, 
-.open>.dropdown-toggle.btn-default.focus, 
+.btn-default:active:focus, .btn-default:active:hover,
+.open>.dropdown-toggle.btn-default.focus,
 .open>.dropdown-toggle.btn-default:focus,
 .open>.dropdown-toggle.btn-default:hover {
     color: #333;
@@ -1640,7 +1643,7 @@ div.dataTables_wrapper div.dataTables_length label{
     transition: none;
     -webkit-transition: none;
 }
-/*** invoice 
+/*** invoice
 =========================================================================================================================*/
 .invoice_area{}
 .invoice_area .item_right{
